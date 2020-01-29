@@ -1,7 +1,9 @@
+# MacOS system files
 .DS_Store
 
+# Output and run files
 *.pyc
-out/*
+*.csv
 
 
 # Byte-compiled / optimized / DLL files

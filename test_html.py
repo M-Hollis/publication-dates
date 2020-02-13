@@ -1,4 +1,5 @@
 from unittest import TestCase
+from datetime import datetime
 import html
 
 
@@ -10,13 +11,23 @@ class HtmlTests(TestCase):
 		self.test_iss = 2
 
 
-	def test_can_detect_start_volume_in_current_year(self):
-		yearToCover = 2017
+	def test_start_volume_detects_previous_year_if_no_args_given(self):
+		expectedStartYear = datetime.now().year - 1
+
+		(start_volume, acceptance_year) = html.detect_start_volume()
+
+		self.assertEqual(expectedStartYear, acceptance_year)
+
+
+	def test_html_can_detect_start_volume_in_given_year(self):
+		runYear = 2018
+
+		expectedStartYear = runYear - 1
 		expectedStartVol = 854
 
-		(start_volume, previous_year) = html.detect_start_volume()
+		(start_volume, acceptance_year) = html.detect_start_volume(runYear)
 
-		self.assertEqual(yearToCover, previous_year)
+		self.assertEqual(expectedStartYear, acceptance_year)
 		self.assertEqual(expectedStartVol, start_volume)
 
 

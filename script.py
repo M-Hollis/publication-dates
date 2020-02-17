@@ -1,3 +1,4 @@
+import time
 import sys
 import parameters
 import html
@@ -6,6 +7,8 @@ from file_writer import FileWriter
 
 
 def run(journal, num_articles):
+
+	print "Running publication-dates version 1.1\n"
 
 	# Setup output file, set parameters, and use brief run if testing
 	writer = FileWriter(journal)
@@ -24,6 +27,8 @@ def run(journal, num_articles):
 	start_volume = date[0]
 	acceptance_year = date[1]
 
+	counter = 0
+
 	volumes = range(start_volume-num_volumes+1, start_volume+1)
 
 	for volume in reversed(volumes):
@@ -38,6 +43,7 @@ def run(journal, num_articles):
 		    
 			try:
 				date_string = html.get_date_div(url)
+				counter += 1
 			except:
 				print "Some error occurred (URL '",url,"' not available?). Skipping."
 				break
@@ -49,6 +55,14 @@ def run(journal, num_articles):
 
 	writer.close_file()
 
+	return counter
+
 
 if __name__ == "__main__":
-    run(parameters.journal.upper(), parameters.num_articles)
+	start_time = time.time()
+
+	count = run(parameters.journal.upper(), parameters.num_articles)
+
+	print "\n----------------------------------------------------------------------"
+	print "Sampled", count, "articles in:", (time.time() - start_time) / 3600.0, "hrs"
+

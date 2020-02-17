@@ -1,5 +1,5 @@
 # Select journal - must be either "ApJ" or "ApJL"
-journal = "ApJL"
+journal = "ApJ"
 
 # Number of articles to use from each issue
 num_articles = 30

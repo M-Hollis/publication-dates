@@ -75,7 +75,7 @@ Assumptions:
 * There are 2 issues per volume
 * There are 18 volumes per year (1.5 per month, averaged)
 
-The program will attempt to load the URLs of the first 30 articles in issue 1 of the starting volume. It will retrieve the dates for as many of these as possible, before doing the same for issue 1 of the previous volume, and then issue 1 of the volume before that, etc. It will loop through the previous 18 volumes in this manner, corresponding to the previous year, to return the dates for a sample of at least 500 articles (URLs on the ApJ website are not entirely consistent, so the date retrieval may fail for some articles). 
+The program will attempt to load the URLs of the first 30 articles in issue 1 of the starting volume. It will retrieve the dates for as many of these as possible, before doing the same for issue 1 of the previous volume, and then issue 1 of the volume before that, etc. It will loop through the previous 18 volumes in this manner, corresponding to the previous year, to return the dates for a sample of several hundred articles (URLs on the ApJ website are not entirely consistent, so the date retrieval may fail for some articles). 
 
 An article accepted on 1st January will take roughly a month to make it into a published issue, so articles accepted in a given year start appearing around February. Similarly, the January issue of the given year will contain mostly articles accepted in December of the year before that. The program therefore automatically detects the first completely-February volume of the current year (e.g. Volume 836: Number 1, 10 February 2017), and loops back through to the previous February, doing some final filtering to remove articles not accepted in the desired year.
 

@@ -6,6 +6,68 @@ Inputs: journal name ('ApJ' or 'ApJL'), number of articles to sample per issue
 Outputs: .csv file (open in Excel)
 
 
+### Quickstart guide ###
+
+1. Navigate to project folder, and activate virtual environment.
+
+```
+>> activate
+[env] >>
+```
+
+2. Run test suite to check core functionality.
+
+```
+>> runtests
+test_writer_creates_file (test_file_writer.FileWriterTests) ... ok
+...
+test_article_gets_dates (test_article.ArticleTests) ... ok
+test_article_handles_different_date_string_format (test_article.ArticleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 533.066s
+
+OK
+```
+
+3. Run full script in test mode to check overall functionality.
+
+```
+>> python script.py test
+Running publication-dates version 1.1
+
+Testing.....
+2019November4 2019December23
+2019September6 2019December17
+2019May29 2019December6
+
+----------------------------------------------------------------------
+Sampled  3  articles in:  0.128765085803 hrs
+```
+
+4. Debug any errors - target website sometimes changes from year to year, so some code updates may be required, even if tests all pass. Add tests to cover any new issues, and update code to fix the problem.
+
+5. Run full script. As a guideline, it should take a couple of minutes at the start to build the article index, and then the script should start printing out results to screen. 
+
+```
+>> python script.py
+Running publication-dates version 1.1
+
+2019October25 2019December21
+2019October29 2019December20
+2019November27 2019December18
+2019November18 2019December17
+Some error occurred (URL ' http://iopscience.iop.org/article/10.3847/1538-4357/ab1b2a ' not available?). Skipping.
+2019May6 2019December17
+2019October14 2019December3
+2019November10 2019December1
+2019September25 2019November15
+
+----------------------------------------------------------------------
+Sampled 8 articles in: 0.58765085803 hrs
+```
+
+
 ### Technical details ###
 
 Assumptions:  

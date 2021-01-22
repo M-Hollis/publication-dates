@@ -30,7 +30,9 @@ Ran 18 tests in 533.066s
 OK
 ```
 
-3. Run full script in test mode to check overall functionality.
+3. Debug any errors - target website sometimes changes from year to year, so some code updates may be required, even if tests all pass. Add tests to cover any new issues, and update code to fix the problem.
+
+4. Run full script in test mode to check overall functionality.
 
 ```
 >> python script.py test
@@ -45,9 +47,9 @@ Testing.....
 Sampled  3  articles in:  0.128765085803 hrs
 ```
 
-4. Debug any errors - target website sometimes changes from year to year, so some code updates may be required, even if tests all pass. Add tests to cover any new issues, and update code to fix the problem.
+5. Debug any more errors.
 
-5. Run full script. As a guideline, it should take a couple of minutes at the start to build the article index, and then the script should start printing out results to screen. 
+6. Run full script. As a guideline, it should take a couple of minutes at the start to build the article index, and then the script should start printing out results to screen. 
 
 ```
 >> python script.py
